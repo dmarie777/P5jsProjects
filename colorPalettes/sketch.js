@@ -13,15 +13,15 @@ function setup() {
     background(220);
     colorMode(HSB, 360, 100, 100, 255);
     textSize(20);
-    for (i = 0; i < 5; i++) { //increase this number as you add palettes
+    for (r = 0; r < table.getRowCount(); r++) { 
         fill(0);
-        text(i,8, i * 60 + 35);
-        for (j = 0; j < 7; j++) {
-          h = int(table.get(i, j * 3));
-          s = int(table.get(i, j * 3 + 1));
-          b = int(table.get(i, j * 3 + 2));
+        text(r,8, r * 60 + 35);
+        for (c = 0; c < table.getColumnCount()/3; c++) {
+          h = int(table.get(r, c * 3));
+          s = int(table.get(r, c * 3 + 1));
+          b = int(table.get(r, c * 3 + 2));
           fill(h, s, b);
-          rect(j * 50 + 35, i * 60 + 10, 50);
+          rect(c * 50 + 35, r * 60 +10, 50);
         }
     }
 }
