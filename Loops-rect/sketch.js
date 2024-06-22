@@ -13,7 +13,7 @@ function setup() {
     let sizeRect = 50;
     for (let x =0; x<width; x++) {
         for (let y=0; y< height; y+=sizeRect) {
-            let color = getColor(palette, floor(random(5)));
+            getColor(palette, floor(random(5)));
             stroke(h,s,b);
             rect(random(width), random(height), sizeRect);
         } 
