@@ -10,20 +10,28 @@ function setup() {
     colorMode(HSB, 360, 100, 100);
     palette = 0;
     getColors(palette, floor(random(3,8)));
-    c =3 ;
-    dist=0;
+    cX =5;
+    cY = 5;
+    ballSize = 50;
+    distX=ballSize/2;
+    distY=floor(random(ballSize/2, height));
 }
 
 function draw() {
     noStroke();
     drawTable();
     fill(h,s,b);
-    circle(dist, windowHeight/2, 50 );
-    dist +=c;
 
-    if (dist > width || dist<0) {
-        c *= -1;
+    circle(distX, distY, ballSize );
+    distX +=cX;
+    distY +=cY;
+
+    if (distX > width - ballSize/2 || distX<ballSize/2 ) {
+        cX *= -1;
     }  
+    if (distY > height - ballSize/2 || distY<ballSize/2) {
+        cY *= -1;
+    }
 }
 
 function getColors(palette, col) {
